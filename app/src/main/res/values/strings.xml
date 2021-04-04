@@ -15,9 +15,33 @@
     <string name="confirm_password">Confirm password</string>
     <string name="name">Your Name</string>
     <string name="signup">SignUp</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hall">Hall</string>
     <string name="room">Room</string>
     <string name="kitchen">Kitchen</string>
+    <string name="logout">Logout</string>
+    <string name="no_appliances_found_please_add_appliances_to_control_over_here">No Appliances found ,Please add appliances to control over here.</string>
+    <string name="add_appliances">Add Appliances</string>
+    <string name="appliances_name">Appliances Name</string>
+
+    <string-array name="appliancesArray">
+        <item>Select Appliances</item>
+        <item>LIGHT</item>
+        <item>FAN</item>
+        <item>AC</item>
+        <item>TV</item>
+    </string-array>
+
+    <string-array name="primicesArray">
+        <item>Where to add?</item>
+        <item>HALL</item>
+        <item>ROOM</item>
+        <item>KITCHEN</item>
+    </string-array>
+
+    <string name="acImg">https://firebasestorage.googleapis.com/v0/b/home-iot-876c0.appspot.com/o/ac_on.png?alt=media</string>
+    <string name="tvImg">https://firebasestorage.googleapis.com/v0/b/home-iot-876c0.appspot.com/o/tv-screen.png?alt=media</string>
+    <string name="lightImg">https://firebasestorage.googleapis.com/v0/b/home-iot-876c0.appspot.com/o/bulb_on.png?alt=media</string>
+    <string name="fanImg">https://firebasestorage.googleapis.com/v0/b/home-iot-876c0.appspot.com/o/fan%20(1).png?alt=media</string>
+
 </resources>

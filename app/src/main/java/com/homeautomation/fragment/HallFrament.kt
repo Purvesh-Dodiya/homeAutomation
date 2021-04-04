@@ -7,6 +7,7 @@ import android.view.Display
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.ktx.auth
@@ -21,13 +22,15 @@ import com.google.firebase.ktx.Firebase
 import com.homeautomation.R
 import com.homeautomation.adapter.ApplinceAddapter
 import com.homeautomation.adapter.Model
+import kotlinx.android.synthetic.main.fragment_hall_frament.noData
+import kotlinx.android.synthetic.main.fragment_hall_frament.progressBar
 import kotlinx.android.synthetic.main.fragment_hall_frament.recyclerHall
 
 class HallFrament : Fragment() {
     var contextNew: Context? = null
-
     var listData: ArrayList<Model> = arrayListOf()
     private lateinit var database: DatabaseReference
+
     override fun onCreateView(inflater : LayoutInflater, container : ViewGroup?,
                               savedInstanceState : Bundle?) : View? {
         contextNew = container?.context
@@ -36,12 +39,29 @@ class HallFrament : Fragment() {
 
     override fun onViewCreated(view : View, savedInstanceState : Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loadData(view.context)
         recyclerHall.layoutManager = LinearLayoutManager(context)
+        loadData(view.context)
+        recyclerHall.isNestedScrollingEnabled = false
+        progressBar.visibility = View.VISIBLE
+        checkForData()
+    }
 
+    private fun checkForData() {
+        val userID = Firebase.auth.uid.toString()
+        database = Firebase.database.reference.child("users").child(userID).child("SWITCH/HALL")
 
+        database.addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot : DataSnapshot) {
+                if (!snapshot.exists()){
+                    progressBar.isVisible = false
+                    noData.isVisible = true
+                }
+            }
 
+            override fun onCancelled(error : DatabaseError) {
 
+            }
+        })
     }
 
     private fun loadData(context: Context) {
@@ -58,7 +78,8 @@ class HallFrament : Fragment() {
                 a?.let { listData.add(it) }
                 ApplinceAddapter(listData,context).apply {
                     recyclerHall.adapter = this
-
+                    progressBar.visibility = View.GONE
+                    noData.isVisible = false
                 }
             }
 

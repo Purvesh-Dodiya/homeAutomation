@@ -13,7 +13,7 @@
         android:layout_marginTop="112dp"
         android:fontFamily="sans-serif-smallcaps"
         android:text="@string/signup"
-        android:textColor="@android:color/holo_orange_dark"
+        android:textColor="@color/blue"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
@@ -43,6 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:hint="@string/your_name"
+            android:backgroundTint="@color/blue"
             android:textSize="16dp" />
 
         <TextView
@@ -58,6 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:hint="@string/enter_email"
+            android:backgroundTint="@color/blue"
             android:inputType="textEmailAddress"
             android:textSize="16dp" />
 
@@ -69,11 +71,12 @@
             android:textSize="16dp" />
 
         <EditText
-            android:id="@+id/edtpassword"
+            android:id="@+id/edtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:hint="@string/create_password"
+            android:backgroundTint="@color/blue"
             android:inputType="textPassword"
             android:textSize="16dp" />
 
@@ -90,6 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:hint="@string/confirm_password"
+            android:backgroundTint="@color/blue"
             android:inputType="textPassword"
             android:textSize="16dp" />
 
@@ -97,9 +101,19 @@
             android:id="@+id/btnSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/holo_orange_dark"
+            android:backgroundTint="@color/blue"
             android:text="@string/signup"
             android:textAllCaps="false" />
 
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBarView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

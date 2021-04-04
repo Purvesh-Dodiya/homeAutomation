@@ -5,4 +5,5 @@ package com.homeautomation.adapter
   lateinit var status: String
   lateinit var key: String
   lateinit var primises: String
+  lateinit var name: String
 }
