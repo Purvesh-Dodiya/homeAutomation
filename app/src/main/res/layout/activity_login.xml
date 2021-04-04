@@ -62,7 +62,7 @@
             android:layout_marginBottom="8dp"
             android:backgroundTint="@color/blue"
             android:hint="@string/password"
-
+            android:imeOptions="actionDone"
             android:inputType="textPassword" />
 
         <Button
